@@ -1,0 +1,56 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-md-12">
+<!-- Extended material form grid -->
+
+<form (ngSubmit)="addNewEmployeeDatas()">
+
+  <!-- Grid row -->
+  <div class="form-row">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <mat-label for="inputName4MD">Name</mat-label>
+        <input mdbInput type="text" class="form-control" id="inputEmail4MD" name="name" placeholder="" [(ngModel)]="employee.name">
+      </div>
+    </div>
+    <!-- Grid column -->
+
+  <!-- Grid row -->
+  <div class="row">
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <label for="inputAddressMD">Address</label>
+        <input mdbInput type="text" class="form-control" id="inputAddressMD" placeholder="" name="address" [(ngModel)]="employee.address">
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+
+    <!-- Grid column -->
+    <div class="col-md-12">
+      <!-- Material input -->
+      <div class="md-form form-group">
+        <label for="quantityeMD">Quantity</label>
+        <input mdbInput type="text" class="form-control" id="quantity" placeholder="" name="quantity" [(ngModel)]="employee.quantity">
+      </div>
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+  <br>
+  <button type="submit"  mat-raised-button color="primary" class="mb10">Submit</button>
+  <mat-progress-bar mode="indeterminate" *ngIf="progStatus"></mat-progress-bar>
+</form>
+
+<!-- Extended material form grid -->
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<p>You can introduce custom directives for table headers to sort columns</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+     <th scope="col" sortable="name" >Name</th>  <!-- (sort)="onSort($event)" -->
+    <th scope="col" sortable="area" >Address</th>
+    <th scope="col" sortable="population" >Mobile</th>
+    <th scope="col" sortable="dele">Delete User</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let country of SecondProcutList">
+    <th scope="row">{{ country.id }}</th>
+    <td>{{ country.name }}</td>
+    <td>{{ country.address}}</td>
+    <td>{{ country.quantity | number }}</td>
+    <td><a (click)="deleteUserById(country.id)">delete</a></td>
+  </tr>
+  </tbody>
+</table>

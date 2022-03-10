@@ -8,3 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'alihaider_fifth_assignment';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// constructor(private router: Router)
+// {
+//   router.navigate(['/login']);
+// }

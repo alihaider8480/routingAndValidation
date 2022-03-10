@@ -1,0 +1,70 @@
+<p>Reactive Form add-employee Form</p>
+<form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee($event)">
+
+   <label>ID : </label>
+   <input type="number" name="id" formControlName="id">          <!-- ya fromControlName is lia lagaya hai ka hamra addEmployeeFrom ma khud bind ho jae-->
+   <br>
+      <div *ngIf="f.id.touched && f.id.errors">                                           <!-- ya f dako kia ha phir samjha ma ae ga or ya touched,error, required waghara console sa uthae hai consoole wala method f ma agae ha -->
+            <span class="errorstyle" *ngIf="f.id.errors.required">Id Is Required</span>
+
+          </div>
+   <label>First Name : </label>
+   <input type="text" name="firstName" formControlName="firstName">
+   <br>
+      <div *ngIf="f.firstName.touched && f.firstName.errors">
+        <!-- <span class="errorstyle" *ngIf="f.firstName.errors.required">FirstName Is Required</span> -->
+        <span class="errorstyle" *ngIf="f.firstName.errors.minlength">Minimum Lenght Is {{f.firstName.errors.minlength.requiredLength}}</span>
+      </div>
+   <label>Last Name : </label>
+   <input type="text" name="lastName" formControlName="lastName">
+   <br>
+   <div *ngIf="f.lastName.touched && f.lastName.errors">
+    <span class="errorstyle" *ngIf="f.lastName.errors.required">LastName Is Required</span>
+  </div>
+   <label>Email : </label>
+   <input type="email" name="email" formControlName="email">
+   <br>
+   <div *ngIf="f.email.touched && f.email.errors">
+    <span class="errorstyle" *ngIf="f.email.errors.required">Email Is Required</span>
+  </div>
+   <br>
+   <div formArrayName="alternateEmail" *ngFor="let item of alternateEmailArray.controls; let i=index">
+    Alternate Email {{i+1}}<br>
+    <input type="email"  formControlName="i">
+
+   </div>
+   <br><button (click)="addAlternateEmail()">add alternate email</button>
+
+
+   <br>
+   <button type="submit" [disabled]="addEmployeeForm.invalid">Submit</button>  <!-- ya isko disable kardaga jab tak ma theak data ni dalo ga matlab iskii validation ka hisab sa-->
+</form>
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+
+<!-- add button pa click karonga or data text field ma ajae ga-->
+
+<!--
+<form [formGroup]="addEmployeeForm" (ngSubmit)="addMockData()">
+
+  <label>ID : </label>
+  <input type="number" name="id" formControlName="id">           ya fromControlName is lia lagaya hai ka hamra addEmployeeFrom ma khud bind ho jae
+ <br>
+  <label>First Name : </label>
+  <input type="text" name="firstName" formControlName="firstName">
+  <br>
+  <label>Last Name : </label>
+  <input type="text" name="lastName" formControlName="lastName">
+  <br>
+  <label>Email : </label>
+  <input type="email" name="email" formControlName="email">
+  <br>
+  <br>
+  <br>
+  <button type="submit">Submit</button>  ya isko disable kardaga jab tak ma theak data ni dalo ga matlab iskii validation ka hisab sa
+</form> -->
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------- -->

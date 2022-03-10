@@ -1,0 +1,28 @@
+<mat-toolbar class="header-material">
+  <span>Welcom To Ali Haider</span>
+  <button mat-raised-button color="accent" style="margin-left: 80%;"  routerLink="">Login</button>
+</mat-toolbar>
+<div class="bootstrap-wrapper">
+  <br>
+   <div class="container-fluid"> <!--thora space daga border sa  -->
+    <div class="row"> <!--aik screen pa 12 column hota ha default  -->
+      <div class="col-md-2">
+        <mat-card>
+          <mat-action-list>
+           <mat-list-item routerLink="/home">Home</mat-list-item>
+           <mat-list-item routerLink="/home/blog">Blogs</mat-list-item>
+           <mat-list-item routerLink="/home/customer">Customers</mat-list-item>
+           <mat-list-item routerLink="/home/contact">Contact</mat-list-item>
+           <mat-list-item routerLink="/home/addEmployeeData">Add Emp</mat-list-item>
+
+          </mat-action-list>
+        </mat-card>
+      </div>
+      <div class="col-md-10">
+        <mat-card>
+            <router-outlet></router-outlet>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
