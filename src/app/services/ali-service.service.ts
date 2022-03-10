@@ -58,10 +58,41 @@ deleteNewemployeeURL = 'DeleteUserData';
         );
     }
 
+    isUserLogin(){
+      let user=localStorage.getItem('userData');
+      if(user==null || user=='' || user==undefined){
+        return false;
+      }else{
+      return true;
+      }
+    }
+
+    getuserData(){
+
+      const user= localStorage.getItem('userData');
+      if(user!=null){
+        return JSON.parse(user);
+      }
+      else{
+        this.logout();
+        return null;
+      }
+    }
+
+    logout(){
+      localStorage.removeItem('userData');
+      return true;
+    }
+
+    getUserRole(){
+      return this.getuserData().rights;
+    }
+
     getLoginDataURL = 'Get-Login-Info';
     getloginInformation(data:any)
     {
-            return this._httpClient.get(environment_Url+this.getLoginDataURL+'/'+data.name+'/'+data.password).pipe(
+      console.log('name is : '+data.name + ' / password is :'+data.password);
+            return this._httpClient.post(environment_Url+this.getLoginDataURL,data).pipe(
               catchError(this.handleError)
             );
     }

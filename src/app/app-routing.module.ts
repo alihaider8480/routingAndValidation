@@ -22,7 +22,8 @@ const routes: Routes = [
       children:[
         {
           path:"blog",
-          component:BlogsComponent
+          component:BlogsComponent,
+          canActivate:[AliguardsGuard],
         },
         {
           path:"contact",
@@ -30,7 +31,8 @@ const routes: Routes = [
         },
         {
           path:"customer",
-          component:CustomerComponent
+          component:CustomerComponent,
+          canActivate:[AliguardsGuard],
         },
         {
           path:"addEmployeeData",

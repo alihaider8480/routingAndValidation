@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AliServiceService } from './../services/ali-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private aliServiceService: AliServiceService)
+  constructor(private aliServiceService: AliServiceService,private fb: FormBuilder,private _router:Router)
   {
 
    }
 // ddddd
 
+   loginForm=this.fb.group({
+     name:['',[Validators.required]],
+     password:['',[Validators.required]],
+   });
+
   ngOnInit(): void {
   }
+
 
   emp ={
     name: '',
@@ -24,12 +32,13 @@ export class LoginComponent implements OnInit {
 
   loginMethod()
   {
-      console.log('sssssssss :'+this.emp.name);
-
-    this.aliServiceService.getloginInformation(this.emp).subscribe(
-      (getLog) => {
-
-      });
+    this.aliServiceService.getloginInformation(this.loginForm.value).subscribe(
+      (getLog:any) => {
+        localStorage.setItem('userData',JSON.stringify(getLog));
+         this._router.navigate(['/home']);
+                console.log(getLog);
+      }
+      );
   }
 
 }

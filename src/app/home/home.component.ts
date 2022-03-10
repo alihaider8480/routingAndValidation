@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AliServiceService } from './../services/ali-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private aliServiceService: AliServiceService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout()
+  {
+    this.aliServiceService.logout();
+    this.router.navigate(['']);
   }
 
 }

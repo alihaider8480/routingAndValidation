@@ -21,7 +21,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddEmployeeComponent } from './add-employee/add-employee.component'
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component'
     FormsModule,
     MatProgressBarModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
