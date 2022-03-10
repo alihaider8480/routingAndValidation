@@ -58,6 +58,9 @@ deleteNewemployeeURL = 'DeleteUserData';
         );
     }
 
+    // localStorage matlab apka brower ka data cache ma jo hai us sa check kara ga ya
+    //localStorage khud agar history clear kardo ga to logout ho jae ga
+
     isUserLogin(){
       let user=localStorage.getItem('userData');
       if(user==null || user=='' || user==undefined){
@@ -68,7 +71,6 @@ deleteNewemployeeURL = 'DeleteUserData';
     }
 
     getuserData(){
-
       const user= localStorage.getItem('userData');
       if(user!=null){
         return JSON.parse(user);

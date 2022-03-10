@@ -9,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private aliServiceService: AliServiceService,private router: Router) { }
+  constructor(private aliServiceService: AliServiceService,private router: Router)
+  {
+    this.loginValue=aliServiceService.isUserLogin();
+   }
 
   ngOnInit(): void {
   }
@@ -18,6 +21,14 @@ export class HomeComponent implements OnInit {
   {
     this.aliServiceService.logout();
     this.router.navigate(['']);
+  }
+
+  loginValue:boolean;
+
+  checkingHaveYouLogoutAndLogin()
+  {
+    console.log('Home Wasti : '+this.aliServiceService.isUserLogin());
+    this.loginValue=this.aliServiceService.isUserLogin();
   }
 
 }

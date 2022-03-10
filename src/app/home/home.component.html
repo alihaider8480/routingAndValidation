@@ -1,6 +1,11 @@
 <mat-toolbar class="header-material">
   <span>Welcom To Ali Haider</span>
-  <button mat-raised-button color="accent" style="margin-left: 80%;" (click)="logout()" routerLink="">Logout</button>
+  <div style="margin-left: 80%;" *ngIf="loginValue">
+    <button mat-raised-button color="accent" (click)="logout()" routerLink="">Logout</button>
+  </div>
+  <div style="margin-left: 80%;" *ngIf="loginValue==false">
+    <button mat-raised-button color="accent" (click)="logout()" routerLink="">Login</button>
+  </div>
 </mat-toolbar>
 <div class="bootstrap-wrapper">
   <br>
