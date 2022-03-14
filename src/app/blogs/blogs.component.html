@@ -2,53 +2,92 @@
   <div class="container-fluid ">   <!-- matlab upar or sido sa space margin wagahra-->
     <div class="row">             <!-- matlab aik row bna daga -->
       <div class="col-md-12">            <!-- aik page pa default 12 colum hota hai-->
-<!-- Extended material form grid -->
+            <!-- Extended material form grid -->
+            <!-- (ngSubmit)="addNewEmployeeDatas()" -->
+            <form  (ngSubmit)="addNewEmployeeDatas()" [formGroup]="addEmployeeForm">
+<!-- ya asa form use karo isma required fieild ka error print karna ki zarorat ni parti ya khud hi submit ni kara ga from ko yahi mat from use karo-->
+            <mat-form-field appearance="fill" class="mt10 w100">
+              <mat-label>Serial Number</mat-label>
+                <input name="number" formControlName="serialNumber" matInput placeholder="serialNumber" >
+              </mat-form-field>
+              <br>
 
-<form (ngSubmit)="addNewEmployeeDatas()">
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Name</mat-label>
+                <input name="text" formControlName="name" matInput placeholder="name">
+              </mat-form-field>
+              <br>
 
-  <!-- Grid row -->
-  <div class="form-row">
-    <!-- Grid column -->
-    <div class="col-md-12">
-      <!-- Material input -->
-      <div class="md-form form-group">
-        <mat-label for="inputName4MD">Name</mat-label>
-        <input mdbInput type="text" class="form-control" id="inputEmail4MD" name="name" placeholder="" [(ngModel)]="employee.name">
-      </div>
-    </div>
-    <!-- Grid column -->
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Address</mat-label>
+                <input name="text" formControlName="address" matInput placeholder="address">
+              </mat-form-field>
+              <br>
 
-  <!-- Grid row -->
-  <div class="row">
-    <!-- Grid column -->
-    <div class="col-md-12">
-      <!-- Material input -->
-      <div class="md-form form-group">
-        <label for="inputAddressMD">Address</label>
-        <input mdbInput type="text" class="form-control" id="inputAddressMD" placeholder="" name="address" [(ngModel)]="employee.address">
-      </div>
-    </div>
-    <!-- Grid column -->
-  </div>
-  <!-- Grid row -->
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Number</mat-label>
+                <input name="number" formControlName="number" matInput placeholder="Number">
+              </mat-form-field>
+              <div *ngIf="f.number.touched && f.number.invalid" class="alert alert-danger">
+                <div *ngIf="f.number.errors?.pattern">Mobile number is not 11 digit</div>
+              </div>
+              <br>
 
-    <!-- Grid column -->
-    <div class="col-md-12">
-      <!-- Material input -->
-      <div class="md-form form-group">
-        <label for="quantityeMD">Quantity</label>
-        <input mdbInput type="text" class="form-control" id="quantity" placeholder="" name="quantity" [(ngModel)]="employee.quantity">
-      </div>
-    </div>
-    <!-- Grid column -->
-  </div>
-  <!-- Grid row -->
-  <br>
-  <button type="submit"  mat-raised-button color="primary" class="mb10">Submit</button>
-  <mat-progress-bar mode="indeterminate" *ngIf="progStatus"></mat-progress-bar>
-</form>
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Email</mat-label>
+                <input name="email" formControlName="email" matInput placeholder="Email Address">
+              </mat-form-field>
+              <br>
 
-<!-- Extended material form grid -->
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Block Name</mat-label>
+                <select formControlName="block" matNativeControl   placeholder="Block">
+                  <option value="none">none</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                </select>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Customer Botals</mat-label>
+                <input name="number" formControlName="persolBottle" matInput placeholder="Have Customer Botals ?">
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Delivered Quantity</mat-label>
+                <input name="number" formControlName="deliveredQuantity" matInput placeholder="delivered Quantity">
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Status</mat-label>
+                <select formControlName="status" matNativeControl   placeholder="status">
+                  <option value="Active">Active</option>
+                  <option value="Terminate">Terminate</option>
+                </select>
+              </mat-form-field>
+              <br>
+
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Price</mat-label>
+                <input name="number" formControlName="price" matInput placeholder="Price">
+              </mat-form-field>
+              <br>
+
+
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Comments</mat-label>
+                <input name="text" formControlName="comments" matInput placeholder="Customer Reference Or NearBy">
+              </mat-form-field>
+              <br>
+
+              <button type="submit"  mat-raised-button color="primary" class="mb10" [disabled]="false">Submit</button>
+              <mat-progress-bar mode="indeterminate" *ngIf="progStatus"></mat-progress-bar>
+            </form>
       </div>
     </div>
   </div>

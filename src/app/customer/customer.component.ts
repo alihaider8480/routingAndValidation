@@ -95,7 +95,7 @@ export class CustomerComponent {
   constructor(private aliServiceService: AliServiceService)
   {
     console.log("in app component");
-        aliServiceService.getcustomerData().subscribe(
+        aliServiceService.getAllCustomerData().subscribe(
           (response:any)=>{
             this.SecondProcutList=response;
             console.log("in app component");
@@ -104,7 +104,7 @@ export class CustomerComponent {
           });
 }
 
-deleteUserById(data:any)
+deleteCustomerUserById(data:any)
 {
 
   Swal.fire({

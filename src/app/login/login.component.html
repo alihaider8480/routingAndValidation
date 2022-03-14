@@ -19,13 +19,15 @@
             <br>
             <mat-form-field appearance="outline" class="mt10 w100">
               <mat-label>Password</mat-label>
-              <input name="password" formControlName="password" matInput placeholder="Password"  >
+              <input name="password" formControlName="password" matInput placeholder="Password">
             </mat-form-field>
 
             <br>
 
           <button mat-stroked-button color="accent" class="btn-block">Sign-in</button>
         </form>
+        <br>
+        <mat-progress-bar mode="indeterminate" *ngIf="progStatus"></mat-progress-bar>
       </mat-card-content>
       </mat-card>
 

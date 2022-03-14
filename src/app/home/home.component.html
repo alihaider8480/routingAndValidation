@@ -1,10 +1,10 @@
 <mat-toolbar class="header-material">
-  <span>Welcom To Ali Haider</span>
+  <span>Welcom To YumMum</span>
   <div style="margin-left: 80%;" *ngIf="loginValue">
-    <button mat-raised-button color="accent" (click)="logout()" routerLink="">Logout</button>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
   </div>
   <div style="margin-left: 80%;" *ngIf="loginValue==false">
-    <button mat-raised-button color="accent" (click)="logout()" routerLink="">Login</button>
+    <button mat-raised-button color="accent" (click)="logout()">Login</button>
   </div>
 </mat-toolbar>
 <div class="bootstrap-wrapper">
@@ -17,14 +17,17 @@
            <mat-list-item routerLink="/home">Home</mat-list-item>
            <mat-list-item routerLink="/home/blog">Blogs</mat-list-item>
            <mat-list-item routerLink="/home/customer">Customers</mat-list-item>
+           <mat-list-item routerLink="/home/customerDetails">Customers Details</mat-list-item>
+           <mat-list-item routerLink="/home/deliveredBottals">Add Delivered Bottals</mat-list-item>
            <mat-list-item routerLink="/home/contact">Contact</mat-list-item>
            <mat-list-item routerLink="/home/addEmployeeData">Add Emp</mat-list-item>
 
           </mat-action-list>
         </mat-card>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10" style="background-color: rgb(143, 173, 173);">
         <mat-card>
+          <br>
             <router-outlet></router-outlet>
         </mat-card>
       </div>

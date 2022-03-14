@@ -23,6 +23,9 @@ import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {MatInputModule} from '@angular/material/input';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { DeliveredQuantityComponent } from './delivered-quantity/delivered-quantity.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import {MatInputModule} from '@angular/material/input';
     NotFoundComponent,
     LoginComponent,
     MainComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    CustomerDetailsComponent,
+    DeliveredQuantityComponent
   ],
   imports: [
     BrowserModule,

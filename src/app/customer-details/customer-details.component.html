@@ -1,0 +1,28 @@
+<p>You can introduce custom directives for table headers to sort columns</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+     <th scope="col" sortable="deliveredQuantity" >delivered Quantity</th>  <!-- (sort)="onSort($event)" -->
+    <th scope="col" sortable="status" >status</th>
+    <th scope="col" sortable="block" >block</th>
+    <th scope="col" sortable="persolBottle" >persolBottle</th>
+    <th scope="col" sortable="price" >price</th>
+    <th scope="col" sortable="totolAmount" >Total Amount</th>
+    <th scope="col" sortable="dele">Delete User</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let country of SecondProcutList">
+    <th scope="row">{{ country.serialNumber }}</th>
+    <td>{{ country.deliveredQuantity }}</td>
+    <td>{{ country.status}}</td>
+    <td>{{ country.block}}</td>
+    <td>{{ country.persolBottle}}</td>
+    <td>{{ country.price}}</td>
+    <td>{{ country.totalAmount}}</td>
+    <td><a (click)="deleteUserById(country.id)">delete</a></td>
+  </tr>
+  </tbody>
+</table>

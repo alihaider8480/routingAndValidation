@@ -1,3 +1,5 @@
+import { DeliveredQuantityComponent } from './delivered-quantity/delivered-quantity.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AliguardsGuard } from './guards/aliguards.guard';
 import { MainComponent } from './main/main.component';
@@ -19,24 +21,37 @@ const routes: Routes = [
     {
       path:"home",
       component:HomeComponent,
+      canActivate:[AliguardsGuard],
       children:[
         {
           path:"blog",
           component:BlogsComponent,
-          canActivate:[AliguardsGuard],
+          canActivate:[AliguardsGuard]
         },
         {
           path:"contact",
-          component:ContactComponent
+          component:ContactComponent,
+          canActivate:[AliguardsGuard]
         },
         {
           path:"customer",
           component:CustomerComponent,
-          canActivate:[AliguardsGuard],
+          canActivate:[AliguardsGuard]
+        },
+        {
+          path:"customerDetails",
+          component:CustomerDetailsComponent,
+          canActivate:[AliguardsGuard]
+        },
+        {
+          path:"deliveredBottals",
+          component:DeliveredQuantityComponent,
+          canActivate:[AliguardsGuard]
         },
         {
           path:"addEmployeeData",
-          component:AddEmployeeComponent
+          component:AddEmployeeComponent,
+          canActivate:[AliguardsGuard]
         },
       ]
     },

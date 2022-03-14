@@ -6,17 +6,21 @@
     <th scope="col">#</th>
      <th scope="col" sortable="name" >Name</th>  <!-- (sort)="onSort($event)" -->
     <th scope="col" sortable="area" >Address</th>
-    <th scope="col" sortable="population" >Mobile</th>
-    <th scope="col" sortable="dele">Delete User</th>
+    <th scope="col" sortable="mobile" >Mobile</th>
+    <th scope="col" sortable="email" >Email</th>
+    <th scope="col" sortable="email" >Comments</th>
+    <th scope="col">Delete User</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let country of SecondProcutList">
-    <th scope="row">{{ country.id }}</th>
+    <th scope="row">{{ country.serialNumber }}</th>
     <td>{{ country.name }}</td>
     <td>{{ country.address}}</td>
-    <td>{{ country.quantity | number }}</td>
-    <td><a (click)="deleteUserById(country.id)">delete</a></td>
+    <td>{{ country.number | number }}</td>
+    <td>{{ country.email}}</td>
+    <td>{{ country.comments}}</td>
+    <td><a (click)="deleteCustomerUserById(country.serialNumber)">delete</a></td>
   </tr>
   </tbody>
 </table>

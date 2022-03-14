@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 
 const environment_Url = environment.baseUrl;
-
+const CustomerController_Url= "YumMumController";
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class AliServiceService {
   constructor(private _httpClient: HttpClient) { }
 
 
-getcustomerDataURL = 'get-user-data';
+getcustomerDataURL = '/get-user-data';
 
 getcustomerData()
 {
@@ -36,24 +36,20 @@ private handleError(error: HttpErrorResponse) {
   return throwError(() => new Error('Something bad happened; please try again later.'));
 }
 
-submitNewemployeeURL = 'insert-new-user-data';
+insertNewCustomerDataRequest_Url = '/insertNewCustomerDataRequest';
 
-submitNewemployee(data:any)
+insertNewCustomerData(data:any)
 {
-  console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-
-
-    return this._httpClient.post(environment_Url+this.submitNewemployeeURL ,data).pipe(
+    return this._httpClient.post(environment_Url+CustomerController_Url+this.insertNewCustomerDataRequest_Url ,data).pipe(
       catchError(this.handleError)
     );
 
 }
 
-deleteNewemployeeURL = 'DeleteUserData';
+deleteNewemployeeURL = '/DeleteCustomerUserData';
     deleteUserByIdFinal(data:any)
     {
-      console.log(environment_Url+this.deleteNewemployeeURL+'/'+data)
-       return  this._httpClient.delete(environment_Url+this.deleteNewemployeeURL+'/'+data).pipe(
+       return  this._httpClient.delete(environment_Url+CustomerController_Url+this.deleteNewemployeeURL+'/'+data).pipe(
           catchError(this.handleError)
         );
     }
@@ -90,12 +86,39 @@ deleteNewemployeeURL = 'DeleteUserData';
       return this.getuserData().rights;
     }
 
-    getLoginDataURL = 'Get-Login-Info';
+    getLoginCustomerData_Url = 'Get-Login-Info';
     getloginInformation(data:any)
     {
       console.log('name is : '+data.name + ' / password is :'+data.password);
-            return this._httpClient.post(environment_Url+this.getLoginDataURL,data).pipe(
+            return this._httpClient.post(environment_Url+this.getLoginCustomerData_Url,data).pipe(
               catchError(this.handleError)
             );
     }
+
+    getAllCustomerData_Url = '/GetAllCustomerDataRequest';
+    getAllCustomerData()
+    {
+            return this._httpClient.get(environment_Url+CustomerController_Url+this.getAllCustomerData_Url).pipe(
+              catchError(this.handleError)
+            );
+    }
+
+    getByIdCustomerData_Url = '/GetByIDCustomerDataRequest/';
+    getByIDCustomerData(data:any)
+    {
+      console.log(data);
+            return this._httpClient.get(environment_Url+CustomerController_Url+this.getByIdCustomerData_Url+data.serialNumber).pipe(
+              catchError(this.handleError)
+            );
+    }
+
+    UpdateCustomerDeliveryData_Url = '/updateNewCustomerDataRequest';
+    updateCustomerDeliveryData(data:any)
+    {
+      return this._httpClient.post(environment_Url+CustomerController_Url+this.UpdateCustomerDeliveryData_Url,data).pipe(
+        catchError(this.handleError)
+      );
+    }
+
+
 }

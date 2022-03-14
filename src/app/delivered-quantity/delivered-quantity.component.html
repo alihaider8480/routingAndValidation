@@ -1,0 +1,30 @@
+        <!-- aik page pa default 12 colum hota hai-->
+            <!-- Extended material form grid -->
+            <!-- (ngSubmit)="addNewEmployeeDatas()" -->
+            <form [formGroup]="myForm" (ngSubmit)="updateDeliveryRecords()">
+                <mat-form-field appearance="fill">
+                  <mat-label >SerialNumber</mat-label>
+                  <input formControlName="serialNumber" (keyup.enter)="findbyserialNumber()" matInput>
+                </mat-form-field>
+                              <!-- ya asa form use karo isma required fieild ka error print karna ki zarorat ni parti ya khud hi submit ni kara ga from ko yahi mat from use karo-->
+              <mat-form-field appearance="fill" class="mt10 w100">
+                <mat-label>Name : {{name}}</mat-label>
+                  <input name="number" formControlName="name" [disabled]="true" matInput placeholder="serialNumber" >
+                </mat-form-field>
+                <br>
+
+                <mat-form-field appearance="outline" class="mt10 w100">
+                  <mat-label>Delivered Quantity</mat-label>
+                  <input name="text" formControlName="deliveredQuantity" matInput placeholder="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="mt10 w100">
+                  <mat-label>Recevied Quantity</mat-label>
+                  <input name="text" formControlName="deliveredQuantity" matInput placeholder="name">
+                </mat-form-field>
+                <br>
+
+              <button type="submit"  mat-raised-button color="primary" class="mb10" [disabled]="false">Submit</button>
+
+            </form>
+
